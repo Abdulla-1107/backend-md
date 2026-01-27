@@ -1,12 +1,6 @@
-import {
-  IsString,
-  IsNotEmpty,
-  IsDecimal,
-  IsOptional,
-  IsUrl,
-} from 'class-validator';
+import { IsString, IsNotEmpty } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { Decimal } from '@prisma/client/runtime/index-browser';
+import { Prisma } from 'generated/prisma/client' // ✅ Prisma.Decimal ishlatamiz
 
 export class CreateProductDto {
   @ApiProperty({
@@ -57,9 +51,9 @@ export class CreateProductDto {
   @IsNotEmpty()
   description_en: string;
 
-  @ApiProperty({ example: 99.99, description: 'Product price' })
+  @ApiProperty({ example: '99.99', description: 'Product price' })
   @IsNotEmpty()
-  price: number | Decimal;
+  price: Prisma.Decimal; // ✅ to‘g‘ri
 
   @ApiProperty({
     example: 'https://example.com/image.jpg',

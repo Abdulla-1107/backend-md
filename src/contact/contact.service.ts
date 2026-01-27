@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateContactDto } from './dto/create-contact.dto';
 import { UpdateContactDto } from './dto/update-contact.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { Contact } from 'generated/prisma/browser';
+import { Contact } from 'generated/prisma/client';
 
 @Injectable()
 export class ContactService {
