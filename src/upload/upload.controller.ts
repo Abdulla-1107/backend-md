@@ -30,7 +30,7 @@ export class UploadController {
   @UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({
-        destination: './images',
+        destination: './dist/images',
         filename: (req, file, cb) => {
           cb(null, `${Date.now()}${path.extname(file.originalname)}`);
         },
