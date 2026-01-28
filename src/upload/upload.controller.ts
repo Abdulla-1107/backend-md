@@ -42,7 +42,8 @@ export class UploadController {
       return { message: 'Fayl yuklanmadi' };
     }
 
-    const compressedPath = `./images/compressed-${file.filename}`;
+    const compressedFilename = `compressed-${path.parse(file.filename).name}.jpg`;
+    const compressedPath = `./dist/images/${compressedFilename}`;
 
     await sharp(file.path)
       .resize(1024)
